@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+{% load static %}
+<head>
+    <meta charset="UTF-8">
+    <title>Profile</title>
+</head>
+<body>
+
+{% include 'base.html' %}
+
+{% block content %}
+
+        <div align="center" style="font-family: Constantia; color: #ba2121">
+
+            <a style="font-size: x-large" href={{ AccountURL }}>Общая сводка</a>   </br></br>
+                Имя: {{ AccountName }} </br>
+                Звание: {{ AccountRank }} </br></br>
+                <img src={{ AccountRankIcon }}> </br>
+                Соотношение Убийств/Смертей: {{ AccountStat }}    </br>
+                Получено очков опыта: {{ AccountExpirience }}
+        </br></br>
+
+            <a style="font-size: x-large" href={{ AccountPVPURL }}>Общая сводка по PvP матчам</a>   </br></br>
+                {% if AccountFavoritePVP == 'Engineer'  %}
+                    Любимый класс: Инженер  </br>
+                {% endif %}
+
+                {% if AccountFavoritePVP == 'Medic'  %}
+                    Любимый класс: Медик  </br>
+                {% endif %}
+
+                {% if AccountFavoritePVP == 'Rifleman'  %}
+                    Любимый класс: Штурмовик  </br>
+                {% endif %}
+
+                {% if AccountFavoritePVP == 'Recon'  %}
+                    Любимый класс: Снайпер  </br>
+                {% endif %}
+
+                Выигранно боев: {{ AccountPVPwins }}  </br>
+                Убито противников: {{ AccountPVPKills }}  </br>
+                Смертей: {{ AccountPVPdeath }}  </br>
+
+        </br></br>
+
+
+            <a style="font-size: x-large" href={{ AccountPVEURL }}>Общая сводка по PvE матчам</a>   </br></br>
+
+                {% if AccountFavoritePVE == 'Engineer'  %}
+                    Любимый класс: Инженер  </br>
+                {% endif %}
+
+                {% if AccountFavoritePVE == 'Medic'  %}
+                    Любимый класс: Медик  </br>
+                {% endif %}
+
+                {% if AccountFavoritePVE == 'Rifleman'  %}
+                    Любимый класс: Штурмовик  </br>
+                {% endif %}
+
+                {% if AccountFavoritePVE == 'Recon'  %}
+                    Любимый класс: Снайпер  </br>
+                {% endif %}
+
+                Выигранно боев: {{ AccountPVEwins }}  </br>
+
+
+     </div>
+
+
+{% endblock %}
+
+
+</body>
+</html>
