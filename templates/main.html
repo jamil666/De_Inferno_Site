@@ -8,7 +8,7 @@
 
 {% block content %}
 
-    <div align="center" style="font-family: Constantia; color: #ba2121">
+    <div align="center" style="font-family: Constantia; color: #ba2121; position: relative; left: -120px; top: -500px ">
 
         <table style="position:inherit;width:800px;height:20px; align-self: center" id="Table">
 
@@ -20,7 +20,7 @@
 
             {% for wfaccount in wfaccounts %}
                 <tr align="center" style="position:inherit;height: 50px;font-family: 'Droid Serif';font-size: inherit; color: #efefef">
-                    <td > <a href="/profile/{{ wfaccount.Name }}">{{ wfaccount.Name }}</a> </td> </td>
+                    <td > <a style="color: white " href="/profile/{{ wfaccount.Name }}">{{ wfaccount.Name }}</a> </td> </td>
                     <td > {{ wfaccount.Role }} </td>
                     <td > {{ wfaccount.Date_Of_Receipt }} </td>
                     <td></td>

@@ -9,3 +9,8 @@ class WFAccount(models.Model):
 
     def __str__(self):
         return self.Name
+
+
+class Rank (models.Model):
+    RankImage = models.FileField(blank=True, upload_to="Inferno/static/images/Ranks")
+

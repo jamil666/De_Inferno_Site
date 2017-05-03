@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import WFAccount
+from .models import WFAccount, Rank
 # Register your models here.
 
 class AccountAdmin(admin.ModelAdmin):
@@ -8,5 +8,5 @@ class AccountAdmin(admin.ModelAdmin):
 
     list_display = ('Name', 'Role', 'Date_Of_Receipt')
 
-
 admin.site.register(WFAccount, AccountAdmin)
+admin.site.register(Rank)
