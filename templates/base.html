@@ -2,6 +2,7 @@
 <html lang="en">
 {% load static %}
 <link href="https://fonts.googleapis.com/css?family=Shojumaru" rel="stylesheet">
+<link type="text/css" rel="stylesheet" href={% static 'css/base.css' %}>
 
 <head>
     <meta charset="UTF-8">
@@ -11,44 +12,58 @@
 
 </head>
 
-<div align="center" style="margin-top: 0%; font-size: x-large; font-family: 'Shojumaru', cursive; color: #ba2121 ">
-    <div><img src={% static 'images/WarfaceLogo.png' %}></div>
-   <a href={% url 'main' %}>De_Inferno</a>
+<body>
+
+<div align="center" id='zagolovok'
+     style="margin-top: 0%;
+     font-size: x-large;
+     font-family: 'Shojumaru', cursive;
+     color: #ba2121;
+    ">
+
+
+    <div id="logo">
+        <img src={% static 'images/warface.png' %}>
+        <img src={% static 'images/WarfaceLogo.png' %}>
+        <img src={% static 'images/blackwood.png' %}>
+    </div>
+
+   <a style="color: red" href={% url 'main' %}>De_Inferno</a>
+
+    <div align="center"  id="begushaya_stroka" class="begushaya_stroka">
+
+        <marquee direction="left"
+             scrolldelay="5"
+             scrollamount="3"
+             behavior="scroll"
+             loop="0"
+             style="position:inherit;"
+             id="Head_Text">
+            <span style="color:#fffff9;
+
+                font-size:13px;">
+                <h3>Добро пожаловать на сайт клана "De_Inferno"</h3>
+            </span>
+        </marquee>
+    </div>
+
 </div>
 
 </br>
 
-<div align="center" style="width: 100%">
-    <marquee direction="left" scrolldelay="5" scrollamount="3" behavior="scroll" loop="0" style="position:inherit;" id="Head_Text"><span style="color:#fffff9;font-family:'Bookman Old Style';font-size:13px;">Developed by Jamil Kerimov</span></marquee>
-</div>
 
-</br></br>
+    <div class="topnav" id="myTopnav">
 
-<body style="background-color: #242323">
+            <a href={% url 'main' %}>На главную</a>
+            <a href={% url 'clan' %}>Информация о бойцах</a>
+            <a href="https://wf.mail.ru/wiki/index.php/%D0%91%D0%B0%D0%B7%D0%B0_%D0%B7%D0%BD%D0%B0%D0%BD%D0%B8%D0%B9_Warface">База Знаний</a>
 
-
-<div id="Engineer" style="float: right;">
-    <img src={% static 'images/Engineer1.png' %}>
-</div>
-
-<div id="Sniper" style="float: left; ">
-    <img src={% static 'images/Sniper1.png' %}>
-</div>
-
-<div id="Medic" style="float: right; position: absolute; left: 5px; top: 800px;">
-    <img src={% static 'images/Medic1.png' %}>
-</div>
-
-<div id="Riffleman" style="float: right; position: absolute; right: 5px; top: 800px;">
-    <img src={% static 'images/Rifleman1.png' %}>
-</div>
+    </div>
 
 
 {% block content  %}
 
 {% endblock %}
-
-
 
 
 

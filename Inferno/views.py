@@ -3,7 +3,6 @@ from django.shortcuts import render
 from Inferno_Site.settings import STATIC_URL
 from .models import WFAccount
 
-
 def main(request):
     wfaccounts = WFAccount.objects.all()
 
@@ -16,6 +15,11 @@ def profile(request, userinfo):
     AccountData = requests.get(AccountURL)
     AccountDataJson = AccountData.json()
 
+    wfaccounts = WFAccount.objects.all()
+
+    DB_search = wfaccounts.get(Name=AccountDataJson["nickname"])
+    DB_search.RankImage = "%simages/Ranks/Rank%s.png" %(STATIC_URL, AccountDataJson["rank_id"])
+    DB_search.save()
 
     context = {"AccountName": AccountDataJson["nickname"],
                "AccountRank": AccountDataJson["rank_id"],
@@ -34,3 +38,10 @@ def profile(request, userinfo):
                }
 
     return render(request, 'profile.html', context)
+
+def clan(request):
+    wfaccounts = WFAccount.objects.all()
+
+
+    context = {"wfaccounts": wfaccounts}
+    return render(request, 'clan.html', context)
