@@ -2,6 +2,19 @@
 <html lang="en">
 {% load static %}
 
+<script type="text/javascript" src={% static 'js/jquery-latest.js' %}></script>
+<script type="text/javascript" src={% static 'js/jquery.tablesorter.js' %}></script>
+<script type="text/javascript" src={% static 'js/jquery.tablesorter.min.js' %}></script>
+
+<script type="text/javascript">
+    $(document).ready(function()
+    {
+        $("#Table").tablesorter();
+    }
+);
+</script>
+
+
 <body>
 
 {% include 'base.html' %}
@@ -13,17 +26,22 @@
 <div align="center" style="font-family: Constantia;">
 
         <table id="Table" width="60%" style="border: ridge; border-color: gainsboro">
+            <thead>
 
             <tr align="center" style="font-size: x-large; color: white; border: ridge; border-color: #cccccc ">
-            <th style="border: ridge; border-color: #cccccc"> Имя </th>
-            <th style="border: ridge; border-color: #cccccc"> Звание </th>
-            <th style="border: ridge; border-color: #cccccc"> Роль </th>
-            <th style="border: ridge; border-color: #cccccc"> Дата приема </th>
+                <th style="border: ridge; border-color: #cccccc"> Имя </th>
+                <th style="border: ridge; border-color: #cccccc"> Звание </th>
+                <th style="border: ridge; border-color: #cccccc"> Роль </th>
+                <th style="border: ridge; border-color: #cccccc"> Дата приема </th>
             </tr>
+
+            </thead>
+
+            <tbody>
 
             {% for wfaccount in wfaccounts %}
                 <tr align="center" style="height: 50px;font-family: 'Droid Serif';font-size: inherit; color: #ba2121; ">
-                    <td style="border: ridge; border-color: #cccccc"> <a style="color: #ba2121 " href="/profile/{{ wfaccount.Name }}">{{ wfaccount.Name }}</a> </td> </td>
+                    <td style="border: ridge; border-color: #cccccc"> <a style="color: #ba2121 " href="/profile/{{ wfaccount.Name }}">{{ wfaccount.Name }}</a> </td>
                     <td style="border: ridge; border-color: #cccccc">
                         <img width="40px" height="40px" src={{ wfaccount.RankImage }}>
                     </td>
@@ -33,14 +51,13 @@
                 </tr>
             {% endfor %}
 
+        </tbody>
+
         </table>
 
     </div>
 
-
 {% endblock %}
-
-
 
 </body>
 </html>

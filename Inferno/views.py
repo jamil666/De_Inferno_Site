@@ -6,6 +6,7 @@ from .models import WFAccount
 def main(request):
     wfaccounts = WFAccount.objects.all()
 
+
     context = {"wfaccounts": wfaccounts}
     return render(request, "main.html", context)
 
@@ -40,8 +41,7 @@ def profile(request, userinfo):
     return render(request, 'profile.html', context)
 
 def clan(request):
-    wfaccounts = WFAccount.objects.all()
+        wfaccounts = WFAccount.objects.all()
 
-
-    context = {"wfaccounts": wfaccounts}
-    return render(request, 'clan.html', context)
+        context = {"wfaccounts": wfaccounts}
+        return render(request, 'clan.html', context)
